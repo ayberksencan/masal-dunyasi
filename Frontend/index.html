@@ -8,33 +8,31 @@
 </head>
 <body>
   <div class="container">
-    <h1>Masal Dünyası</h1>
+    <h1>🧚‍♀️ Masal Dünyası</h1>
 
     <form id="story-form">
-      <label for="characters">Karakterler:</label>
-      <input type="text" id="characters" required placeholder="Örn: Cesur Tavşan, Uçan Fil" />
+      <label for="characters">Karakterler</label>
+      <input type="text" id="characters" placeholder="Örn: Cesur Tavşan, Uçan Fil" required />
 
-      <label for="setting">Mekan:</label>
-      <input type="text" id="setting" required placeholder="Örn: Sihirli Orman" />
+      <label for="setting">Mekan</label>
+      <input type="text" id="setting" placeholder="Örn: Sihirli Orman" required />
 
-      <label for="theme">Tema:</label>
-      <input type="text" id="theme" required placeholder="Örn: Cesaret ve Dostluk" />
+      <label for="theme">Tema</label>
+      <input type="text" id="theme" placeholder="Örn: Cesaret ve Dostluk" required />
 
-      <button type="submit">Masalı Oluştur</button>
+      <button type="submit">✨ Masalı Oluştur</button>
     </form>
 
-    <!-- Yükleme animasyonu -->
     <div id="loading-indicator" style="display: none;">
       <div class="spinner"></div>
       <p>Masal oluşturuluyor, lütfen bekleyin...</p>
     </div>
 
-    <!-- Masal çıktısı ve ses kontrolleri -->
     <div id="story-output" style="display: none;">
-      <h2>Masal:</h2>
+      <h2>📖 Masal</h2>
       <p id="story-text"></p>
 
-      <div id="voice-controls" style="margin-top: 10px;">
+      <div id="voice-controls">
         <button id="start-reading">▶️ Oku</button>
         <button id="pause-reading">⏸ Duraklat</button>
         <button id="resume-reading">🔁 Devam Et</button>

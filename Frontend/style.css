@@ -1,64 +1,108 @@
+/* Genel yapı */
 body {
-  font-family: sans-serif;
-  background-color: #f4f4f4;
-  padding: 40px;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(to right, #f0f4ff, #f9f9ff);
   margin: 0;
+  padding: 40px 20px;
 }
 
+/* Ana kutu */
 .container {
-  background: white;
-  padding: 30px;
-  max-width: 600px;
-  width: 100%;
+  max-width: 650px;
   margin: auto;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background-color: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
 }
 
+/* Başlık */
 h1 {
   text-align: center;
-  color: #333;
+  color: #003366;
+  font-size: 28px;
+  margin-bottom: 30px;
 }
 
+/* Etiketler */
 label {
   display: block;
   margin-top: 20px;
-  font-weight: bold;
+  font-weight: 600;
+  color: #333;
 }
 
+/* Girişler */
 input {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
   margin-top: 5px;
+  font-size: 16px;
   box-sizing: border-box;
+  transition: border-color 0.3s;
 }
 
+input:focus {
+  border-color: #0077cc;
+  outline: none;
+}
+
+/* Butonlar */
 button {
   margin-top: 20px;
-  padding: 10px;
-  background-color: #0055aa;
+  padding: 12px 20px;
+  background-color: #0077cc;
   color: white;
+  font-weight: 600;
+  font-size: 15px;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  box-sizing: border-box;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #003d80;
+  background-color: #005fa3;
 }
 
+/* Masal çıktısı */
 #story-output {
   margin-top: 30px;
 }
 
-#story-output p {
-  white-space: pre-line;
-  background: #eef;
-  padding: 15px;
-  border-radius: 8px;
+#story-output h2 {
+  color: #003366;
+  font-size: 22px;
+  margin-bottom: 10px;
 }
 
+#story-output p {
+  background-color: #eef5ff;
+  padding: 15px;
+  border-radius: 10px;
+  white-space: pre-line;
+  font-size: 16px;
+  line-height: 1.6;
+  border: 1px solid #c6dbf2;
+}
+
+/* Ses kontrolleri */
+#voice-controls {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+#voice-controls button {
+  flex: 1;
+  margin: 5px;
+}
+
+/* Yükleme animasyonu */
 #loading-indicator {
   text-align: center;
   margin-top: 30px;
