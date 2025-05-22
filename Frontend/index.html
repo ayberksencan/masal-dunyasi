@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Masal Dünyası</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Masal Dünyası</h1>
+    <form id="story-form">
+      <label for="characters">Karakterler:</label>
+      <input type="text" id="characters" required placeholder="Örn: Cesur Tavşan, Uçan Fil" />
+
+      <label for="setting">Mekan:</label>
+      <input type="text" id="setting" required placeholder="Örn: Sihirli Orman" />
+
+      <label for="theme">Tema:</label>
+      <input type="text" id="theme" required placeholder="Örn: Cesaret ve Dostluk" />
+
+      <button type="submit">Masalı Oluştur</button>
+    </form>
+
+    <div id="story-output" style="display: none;">
+      <h2>Masal:</h2>
+      <p id="story-text"></p>
+      <button id="read-story">Masalı Seslendir</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
