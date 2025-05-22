@@ -58,3 +58,23 @@ button:hover {
   padding: 15px;
   border-radius: 8px;
 }
+
+#loading-indicator {
+  text-align: center;
+  margin-top: 30px;
+  color: #555;
+}
+
+.spinner {
+  margin: 0 auto 10px auto;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ccc;
+  border-top: 4px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

@@ -10,6 +10,10 @@ document.getElementById("story-form").addEventListener("submit", async function 
     return;
   }
 
+  // Yükleme animasyonunu göster, sonucu gizle
+  document.getElementById("loading-indicator").style.display = "block";
+  document.getElementById("story-output").style.display = "none";
+
   try {
     const response = await fetch("/generate-story", {
       method: "POST",
@@ -18,6 +22,9 @@ document.getElementById("story-form").addEventListener("submit", async function 
       },
       body: JSON.stringify({ characters, setting, theme })
     });
+
+    // Yanıt geldiyse yüklemeyi gizle
+    document.getElementById("loading-indicator").style.display = "none";
 
     if (!response.ok) {
       throw new Error("Sunucudan geçersiz yanıt alındı: " + response.status);
@@ -28,14 +35,41 @@ document.getElementById("story-form").addEventListener("submit", async function 
 
     document.getElementById("story-text").innerText = storyText;
     document.getElementById("story-output").style.display = "block";
-
-    document.getElementById("read-story").onclick = function () {
-      const utterance = new SpeechSynthesisUtterance(storyText);
-      utterance.lang = "tr-TR";
-      speechSynthesis.speak(utterance);
-    };
   } catch (error) {
     console.error("Masal oluşturulurken hata oluştu:", error);
     alert("Masal oluşturulamadı. Lütfen daha sonra tekrar deneyiniz.");
+    document.getElementById("loading-indicator").style.display = "none";
   }
 });
+
+// ▶️⏸🔁⏹ Sesli okuma kontrolleri
+let currentUtterance;
+
+document.getElementById("start-reading").onclick = function () {
+  const text = document.getElementById("story-text").innerText;
+  if (!text) return;
+
+  if (speechSynthesis.speaking) speechSynthesis.cancel();
+
+  currentUtterance = new SpeechSynthesisUtterance(text);
+  currentUtterance.lang = "tr-TR";
+  speechSynthesis.speak(currentUtterance);
+};
+
+document.getElementById("pause-reading").onclick = function () {
+  if (speechSynthesis.speaking && !speechSynthesis.paused) {
+    speechSynthesis.pause();
+  }
+};
+
+document.getElementById("resume-reading").onclick = function () {
+  if (speechSynthesis.paused) {
+    speechSynthesis.resume();
+  }
+};
+
+document.getElementById("stop-reading").onclick = function () {
+  if (speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+  }
+};

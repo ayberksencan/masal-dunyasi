@@ -9,6 +9,7 @@
 <body>
   <div class="container">
     <h1>Masal Dünyası</h1>
+
     <form id="story-form">
       <label for="characters">Karakterler:</label>
       <input type="text" id="characters" required placeholder="Örn: Cesur Tavşan, Uçan Fil" />
@@ -22,10 +23,23 @@
       <button type="submit">Masalı Oluştur</button>
     </form>
 
+    <!-- Yükleme animasyonu -->
+    <div id="loading-indicator" style="display: none;">
+      <div class="spinner"></div>
+      <p>Masal oluşturuluyor, lütfen bekleyin...</p>
+    </div>
+
+    <!-- Masal çıktısı ve ses kontrolleri -->
     <div id="story-output" style="display: none;">
       <h2>Masal:</h2>
       <p id="story-text"></p>
-      <button id="read-story">Masalı Seslendir</button>
+
+      <div id="voice-controls" style="margin-top: 10px;">
+        <button id="start-reading">▶️ Oku</button>
+        <button id="pause-reading">⏸ Duraklat</button>
+        <button id="resume-reading">🔁 Devam Et</button>
+        <button id="stop-reading">⏹ Durdur</button>
+      </div>
     </div>
   </div>
 
