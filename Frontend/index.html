@@ -8,28 +8,37 @@
 </head>
 <body>
   <div class="container">
-    <h1>🧚‍♀️ Masal Dünyası</h1>
+    <div class="top-bar">
+      <select id="language-selector">
+        <option value="tr" selected>🇹🇷 Türkçe</option>
+        <option value="en">🇬🇧 English</option>
+      </select>
+
+      <button id="theme-toggle">🌙 Tema Değiştir</button>
+    </div>
+
+    <h1 id="title">🧚‍♀️ Masal Dünyası</h1>
 
     <form id="story-form">
-      <label for="characters">Karakterler</label>
+      <label for="characters" id="label-characters">Karakterler</label>
       <input type="text" id="characters" placeholder="Örn: Cesur Tavşan, Uçan Fil" required />
 
-      <label for="setting">Mekan</label>
+      <label for="setting" id="label-setting">Mekan</label>
       <input type="text" id="setting" placeholder="Örn: Sihirli Orman" required />
 
-      <label for="theme">Tema</label>
+      <label for="theme" id="label-theme">Tema</label>
       <input type="text" id="theme" placeholder="Örn: Cesaret ve Dostluk" required />
 
-      <button type="submit">✨ Masalı Oluştur</button>
+      <button type="submit" id="submit-button">✨ Masalı Oluştur</button>
     </form>
 
     <div id="loading-indicator" style="display: none;">
       <div class="spinner"></div>
-      <p>Masal oluşturuluyor, lütfen bekleyin...</p>
+      <p id="loading-text">Masal oluşturuluyor, lütfen bekleyin...</p>
     </div>
 
     <div id="story-output" style="display: none;">
-      <h2>📖 Masal</h2>
+      <h2 id="story-heading">📖 Masal</h2>
       <p id="story-text"></p>
 
       <div id="voice-controls">

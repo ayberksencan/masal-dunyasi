@@ -7,14 +7,12 @@ from dotenv import load_dotenv
 # .env dosyasını yükle
 load_dotenv()
 
-# Flask app tanımı
 app = Flask(__name__, static_folder="frontend", static_url_path="")
 CORS(app)
 
-# OpenRouter API ayarları
 API_URL = "https://openrouter.ai/api/v1/chat/completions"
 API_KEY = os.getenv("OPENROUTER_API_KEY")
-MODEL = "mistralai/mistral-7b-instruct"  # Alternatif: "openai/gpt-3.5-turbo"
+MODEL = "mistralai/mistral-7b-instruct"
 
 HEADERS = {
     "Authorization": f"Bearer {API_KEY}",
@@ -28,21 +26,12 @@ def index():
 @app.route("/generate-story", methods=["POST"])
 def generate_story():
     data = request.get_json()
-    characters = data.get("characters", "")
-    setting = data.get("setting", "")
-    theme = data.get("theme", "")
-
-    prompt = (
-        f"Aşağıdaki bilgilerle kısa, eğitici ve eğlenceli bir Türkçe çocuk masalı yaz:\n"
-        f"Karakterler: {characters}\n"
-        f"Mekan: {setting}\n"
-        f"Tema: {theme}\n"
-    )
+    prompt = data.get("prompt", "")
 
     payload = {
         "model": MODEL,
         "messages": [
-            {"role": "system", "content": "Sen yaratıcı ve eğitici bir Türkçe çocuk masalı yazıcısısın."},
+            {"role": "system", "content": "Sen yaratıcı ve eğitici bir çocuk masalı yazıcısısın."},
             {"role": "user", "content": prompt}
         ]
     }
